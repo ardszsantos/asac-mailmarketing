@@ -40,13 +40,6 @@
         width: 100% !important;
         color-scheme: light only;
       }
-      @media (prefers-color-scheme: dark) {
-        body,
-        .container,
-        .keep-white {
-          background-color: #ffffff !important;
-        }
-      }
       * {
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
@@ -65,6 +58,171 @@
       }
       a {
         text-decoration: none;
+      }
+      /* ===== TRAVA DE CORES (dark mode lock) =====
+         Fundos: background-color + PNG chapado da mesma cor como
+         background-image. O Gmail (inclusive Android) reescreve
+         background-color no dark mode mas NUNCA altera imagens,
+         entao o PNG mantem a cor original 100% das vezes.
+         Textos: classes tx-* reafirmadas com !important. */
+      .bg-page {
+        background-color: #edeff2 !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-edeff2.png) !important;
+      }
+      .bg-white {
+        background-color: #ffffff !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png) !important;
+      }
+      .bg-soft {
+        background-color: #f8f9fa !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png) !important;
+      }
+      .bg-blue {
+        background-color: #e4ebfc !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-e4ebfc.png) !important;
+      }
+      .bg-navy {
+        background-color: #002d72 !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png) !important;
+      }
+      .bg-deep {
+        background-color: #001f4e !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-001f4e.png) !important;
+      }
+      .bg-silver {
+        background-color: #dcdddd !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-dcdddd.png) !important;
+      }
+      .bg-lite {
+        background-color: #b4c7f8 !important;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-b4c7f8.png) !important;
+      }
+      .tx-navy {
+        color: #002d72 !important;
+      }
+      .tx-white {
+        color: #ffffff !important;
+      }
+      .tx-soft {
+        color: #f8f9fa !important;
+      }
+      .tx-silver {
+        color: #dcdddd !important;
+      }
+      .tx-black {
+        color: #000000 !important;
+      }
+      .tx-dark {
+        color: #121212 !important;
+      }
+      .tx-gray {
+        color: #6b7280 !important;
+      }
+      /* Clientes que aplicam dark mode via prefers-color-scheme
+         (Apple Mail, Outlook macOS, Outlook.com) */
+      @media (prefers-color-scheme: dark) {
+        body,
+        .bg-page {
+          background-color: #edeff2 !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-edeff2.png) !important;
+        }
+        .bg-white {
+          background-color: #ffffff !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png) !important;
+        }
+        .bg-soft {
+          background-color: #f8f9fa !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png) !important;
+        }
+        .bg-blue {
+          background-color: #e4ebfc !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-e4ebfc.png) !important;
+        }
+        .bg-navy {
+          background-color: #002d72 !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png) !important;
+        }
+        .bg-deep {
+          background-color: #001f4e !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-001f4e.png) !important;
+        }
+        .bg-silver {
+          background-color: #dcdddd !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-dcdddd.png) !important;
+        }
+        .bg-lite {
+          background-color: #b4c7f8 !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-b4c7f8.png) !important;
+        }
+        .tx-navy {
+          color: #002d72 !important;
+        }
+        .tx-white {
+          color: #ffffff !important;
+        }
+        .tx-soft {
+          color: #f8f9fa !important;
+        }
+        .tx-silver {
+          color: #dcdddd !important;
+        }
+        .tx-black {
+          color: #000000 !important;
+        }
+        .tx-dark {
+          color: #121212 !important;
+        }
+        .tx-gray {
+          color: #6b7280 !important;
+        }
+      }
+      /* Outlook apps (iOS/Android) e Outlook.com em dark mode:
+         [data-ogsc] = texto / [data-ogsb] = fundo */
+      [data-ogsc] .tx-navy {
+        color: #002d72 !important;
+      }
+      [data-ogsc] .tx-white {
+        color: #ffffff !important;
+      }
+      [data-ogsc] .tx-soft {
+        color: #f8f9fa !important;
+      }
+      [data-ogsc] .tx-silver {
+        color: #dcdddd !important;
+      }
+      [data-ogsc] .tx-black {
+        color: #000000 !important;
+      }
+      [data-ogsc] .tx-dark {
+        color: #121212 !important;
+      }
+      [data-ogsc] .tx-gray {
+        color: #6b7280 !important;
+      }
+      [data-ogsb] body,
+      [data-ogsb] .bg-page {
+        background-color: #edeff2 !important;
+      }
+      [data-ogsb] .bg-white {
+        background-color: #ffffff !important;
+      }
+      [data-ogsb] .bg-soft {
+        background-color: #f8f9fa !important;
+      }
+      [data-ogsb] .bg-blue {
+        background-color: #e4ebfc !important;
+      }
+      [data-ogsb] .bg-navy {
+        background-color: #002d72 !important;
+      }
+      [data-ogsb] .bg-deep {
+        background-color: #001f4e !important;
+      }
+      [data-ogsb] .bg-silver {
+        background-color: #dcdddd !important;
+      }
+      [data-ogsb] .bg-lite {
+        background-color: #b4c7f8 !important;
       }
       @media screen and (max-width: 620px) {
         .container {
@@ -91,11 +249,37 @@
           padding-left: 24px !important;
           padding-right: 24px !important;
         }
+        /* Cartao translucido atras do titulo do hero (legibilidade) */
+        .hero-headline {
+          background-color: rgba(255, 255, 255, 0.92) !important;
+          background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-scrim92.png) !important;
+          border-radius: 10px;
+          padding: 12px 14px !important;
+        }
+        .sp-lg {
+          height: 28px !important;
+        }
+        /* Conector tracejado: a bolinha do deco-dots-end termina em
+           x=57px (imagem posicionada em 35px + bolinha ate 22.5px).
+           O padding-left de 58px faz a grade de boxes comecar exatamente
+           onde a bolinha encosta — lateral esquerda do ISO 9001,
+           igual ao desktop. */
+        .iso-section {
+          padding-left: 58px !important;
+          padding-right: 12px !important;
+          background-position: 35px 8px !important;
+        }
       }
     </style>
   </head>
   <body
-    style="margin: 0; padding: 0; background-color: #edeff2"
+    class="body bg-page"
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #edeff2;
+      background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-edeff2.png);
+    "
     bgcolor="#EDEFF2"
   >
     <!-- Preheader (hidden preview text) -->
@@ -119,25 +303,34 @@
 
     <table
       role="presentation"
+      class="bg-page"
       width="100%"
       cellpadding="0"
       cellspacing="0"
       border="0"
       bgcolor="#EDEFF2"
-      style="background-color: #edeff2"
+      style="
+        background-color: #edeff2;
+        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-edeff2.png);
+      "
     >
       <tr>
         <td align="center" style="padding: 24px 12px">
           <!-- ===== CONTAINER 600px ===== -->
           <table
             role="presentation"
-            class="container"
+            class="container bg-white"
             width="600"
             cellpadding="0"
             cellspacing="0"
             border="0"
             bgcolor="#FFFFFF"
-            style="width: 600px; max-width: 600px; background-color: #ffffff"
+            style="
+              width: 600px;
+              max-width: 600px;
+              background-color: #ffffff;
+              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+            "
           >
             <!-- ===== HERO (background image + overlay content) ===== -->
             <tr>
@@ -198,9 +391,11 @@
                       >
                         <tr>
                           <td
+                            class="im bg-blue tx-navy"
                             bgcolor="#E4EBFC"
                             style="
                               background-color: #e4ebfc;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-e4ebfc.png);
                               border: 1px solid #c0d0f9;
                               border-radius: 100px;
                               padding: 4px 12px;
@@ -226,6 +421,7 @@
                   </tr>
                   <tr>
                     <td
+                      class="im tx-navy hero-headline"
                       style="
                         font-family:
                           &quot;Inter&quot;, Arial, Helvetica, sans-serif;
@@ -240,7 +436,11 @@
                     </td>
                   </tr>
                   <tr>
-                    <td height="56" style="font-size: 0; line-height: 0">
+                    <td
+                      class="sp-lg"
+                      height="56"
+                      style="font-size: 0; line-height: 0"
+                    >
                       &nbsp;
                     </td>
                   </tr>
@@ -254,6 +454,7 @@
                       >
                         <tr>
                           <td
+                            class="bg-lite"
                             width="116"
                             height="2"
                             bgcolor="#B4C7F8"
@@ -261,6 +462,7 @@
                               font-size: 0;
                               line-height: 0;
                               background-color: #b4c7f8;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-b4c7f8.png);
                             "
                           >
                             &nbsp;
@@ -270,15 +472,21 @@
                     </td>
                   </tr>
                   <tr>
-                    <td height="56" style="font-size: 0; line-height: 0">
+                    <td
+                      class="sp-lg"
+                      height="56"
+                      style="font-size: 0; line-height: 0"
+                    >
                       &nbsp;
                     </td>
                   </tr>
                   <tr>
                     <td
+                      class="im bg-blue tx-navy"
                       bgcolor="#E4EBFC"
                       style="
                         background-color: #e4ebfc;
+                        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-e4ebfc.png);
                         border: 1px solid #c0d0f9;
                         border-radius: 4px;
                         padding: 4px 12px;
@@ -312,8 +520,13 @@
             <!-- ===== BAND: COMO PODEMOS AJUDAR ===== -->
             <tr>
               <td
+                class="bg-navy"
                 bgcolor="#002D72"
-                style="background-color: #002d72; padding: 24px"
+                style="
+                  background-color: #002d72;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
+                  padding: 24px;
+                "
               >
                 <table
                   role="presentation"
@@ -333,6 +546,7 @@
                       >
                         <tr>
                           <td
+                            class="bg-silver"
                             height="2"
                             bgcolor="#DCDDDD"
                             style="
@@ -340,6 +554,7 @@
                               line-height: 0;
                               height: 2px;
                               background-color: #dcdddd;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-dcdddd.png);
                             "
                           >
                             &nbsp;
@@ -348,6 +563,7 @@
                       </table>
                     </td>
                     <td
+                      class="im tx-silver"
                       width="290"
                       align="center"
                       style="
@@ -373,6 +589,7 @@
                       >
                         <tr>
                           <td
+                            class="bg-silver"
                             height="2"
                             bgcolor="#DCDDDD"
                             style="
@@ -380,6 +597,7 @@
                               line-height: 0;
                               height: 2px;
                               background-color: #dcdddd;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-dcdddd.png);
                             "
                           >
                             &nbsp;
@@ -392,15 +610,15 @@
               </td>
             </tr>
 
-            <!-- ===== SERVICES GRID ===== -->
+            <!-- ===== SERVICES GRID =====
+                 (cor travada no td externo; deco tracejado no td interno) -->
             <tr>
               <td
+                class="bg-white"
                 bgcolor="#FFFFFF"
                 style="
-                  background: #ffffff url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-dots-top.png&quot;)
-                    no-repeat 35px bottom;
-                  background-size: 57px 273px;
-                  padding: 32px 24px;
+                  background-color: #ffffff;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
                 "
               >
                 <table
@@ -412,215 +630,256 @@
                 >
                   <tr>
                     <td
-                      class="stack"
-                      width="50%"
-                      align="center"
-                      valign="top"
-                      style="padding: 0 0 28px"
+                      style="
+                        background: transparent
+                          url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-dots-top.png&quot;)
+                          no-repeat 35px bottom;
+                        background-size: 57px 273px;
+                        padding: 32px 24px;
+                      "
                     >
                       <table
                         role="presentation"
-                        width="180"
+                        width="100%"
                         cellpadding="0"
                         cellspacing="0"
                         border="0"
                       >
                         <tr>
-                          <td align="center">
-                            <img
-                              src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-shield.png"
-                              width="44"
-                              height="44"
-                              alt=""
-                              style="display: block; border: 0"
-                            />
-                            <div
-                              style="
-                                padding-top: 10px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                font-weight: 600;
-                                color: #002d72;
-                                text-transform: uppercase;
-                              "
+                          <td
+                            class="stack"
+                            width="50%"
+                            align="center"
+                            valign="top"
+                            style="padding: 0 0 28px"
+                          >
+                            <table
+                              role="presentation"
+                              width="180"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
                             >
-                              Certifica&ccedil;&otilde;es ISO
-                            </div>
-                            <div
-                              style="
-                                padding-top: 8px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 14px;
-                                line-height: 20px;
-                                color: #002d72;
-                              "
+                              <tr>
+                                <td align="center">
+                                  <img
+                                    src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-shield.png"
+                                    width="44"
+                                    height="44"
+                                    alt=""
+                                    style="display: block; border: 0"
+                                  />
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 10px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      line-height: 22px;
+                                      font-weight: 600;
+                                      color: #002d72;
+                                      text-transform: uppercase;
+                                    "
+                                  >
+                                    Certifica&ccedil;&otilde;es ISO
+                                  </div>
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 8px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 14px;
+                                      line-height: 20px;
+                                      color: #002d72;
+                                    "
+                                  >
+                                    Implanta&ccedil;&atilde;o e
+                                    manuten&ccedil;&atilde;o de normas ISO e
+                                    IATF
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td
+                            class="stack"
+                            width="50%"
+                            align="center"
+                            valign="top"
+                            style="padding: 0 0 28px"
+                          >
+                            <table
+                              role="presentation"
+                              width="180"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
                             >
-                              Implanta&ccedil;&atilde;o e
-                              manuten&ccedil;&atilde;o de normas ISO e IATF
-                            </div>
+                              <tr>
+                                <td align="center">
+                                  <img
+                                    src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-clipboard.png"
+                                    width="44"
+                                    height="44"
+                                    alt=""
+                                    style="display: block; border: 0"
+                                  />
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 10px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      line-height: 22px;
+                                      font-weight: 600;
+                                      color: #002d72;
+                                      text-transform: uppercase;
+                                    "
+                                  >
+                                    Auditorias
+                                  </div>
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 8px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 14px;
+                                      line-height: 20px;
+                                      color: #002d72;
+                                    "
+                                  >
+                                    Internas, de fornecedores e de
+                                    conformidades
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
-                      </table>
-                    </td>
-                    <td
-                      class="stack"
-                      width="50%"
-                      align="center"
-                      valign="top"
-                      style="padding: 0 0 28px"
-                    >
-                      <table
-                        role="presentation"
-                        width="180"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                      >
                         <tr>
-                          <td align="center">
-                            <img
-                              src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-clipboard.png"
-                              width="44"
-                              height="44"
-                              alt=""
-                              style="display: block; border: 0"
-                            />
-                            <div
-                              style="
-                                padding-top: 10px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                font-weight: 600;
-                                color: #002d72;
-                                text-transform: uppercase;
-                              "
+                          <td
+                            class="stack"
+                            width="50%"
+                            align="center"
+                            valign="top"
+                          >
+                            <table
+                              role="presentation"
+                              width="180"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
                             >
-                              Auditorias
-                            </div>
-                            <div
-                              style="
-                                padding-top: 8px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 14px;
-                                line-height: 20px;
-                                color: #002d72;
-                              "
-                            >
-                              Internas, de fornecedores e de conformidades
-                            </div>
+                              <tr>
+                                <td align="center">
+                                  <img
+                                    src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-chart.png"
+                                    width="44"
+                                    height="44"
+                                    alt=""
+                                    style="display: block; border: 0"
+                                  />
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 10px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      line-height: 22px;
+                                      font-weight: 600;
+                                      color: #002d72;
+                                      text-transform: uppercase;
+                                    "
+                                  >
+                                    Melhorias de processos
+                                  </div>
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 8px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 14px;
+                                      line-height: 20px;
+                                      color: #002d72;
+                                    "
+                                  >
+                                    Mapeamento, otimiza&ccedil;&atilde;o e
+                                    aplica&ccedil;&atilde;o de ferramentas da
+                                    qualidade
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="stack" width="50%" align="center" valign="top">
-                      <table
-                        role="presentation"
-                        width="180"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                      >
-                        <tr>
-                          <td align="center">
-                            <img
-                              src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-chart.png"
-                              width="44"
-                              height="44"
-                              alt=""
-                              style="display: block; border: 0"
-                            />
-                            <div
-                              style="
-                                padding-top: 10px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                font-weight: 600;
-                                color: #002d72;
-                                text-transform: uppercase;
-                              "
+                          <td
+                            class="stack"
+                            width="50%"
+                            align="center"
+                            valign="top"
+                          >
+                            <table
+                              role="presentation"
+                              width="180"
+                              cellpadding="0"
+                              cellspacing="0"
+                              border="0"
                             >
-                              Melhorias de processos
-                            </div>
-                            <div
-                              style="
-                                padding-top: 8px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 14px;
-                                line-height: 20px;
-                                color: #002d72;
-                              "
-                            >
-                              Mapeamento, otimiza&ccedil;&atilde;o e
-                              aplica&ccedil;&atilde;o de ferramentas da
-                              qualidade
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                    <td class="stack" width="50%" align="center" valign="top">
-                      <table
-                        role="presentation"
-                        width="180"
-                        cellpadding="0"
-                        cellspacing="0"
-                        border="0"
-                      >
-                        <tr>
-                          <td align="center">
-                            <img
-                              src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-gradcap.png"
-                              width="44"
-                              height="44"
-                              alt=""
-                              style="display: block; border: 0"
-                            />
-                            <div
-                              style="
-                                padding-top: 10px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 16px;
-                                line-height: 22px;
-                                font-weight: 600;
-                                color: #002d72;
-                                text-transform: uppercase;
-                              "
-                            >
-                              Treinamentos corporativos
-                            </div>
-                            <div
-                              style="
-                                padding-top: 8px;
-                                font-family:
-                                  &quot;Inter&quot;, Arial, Helvetica,
-                                  sans-serif;
-                                font-size: 14px;
-                                line-height: 20px;
-                                color: #002d72;
-                              "
-                            >
-                              Capacita&ccedil;&atilde;o em qualidade,
-                              gest&atilde;o e compet&ecirc;ncias t&eacute;cnicas
-                            </div>
+                              <tr>
+                                <td align="center">
+                                  <img
+                                    src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-gradcap.png"
+                                    width="44"
+                                    height="44"
+                                    alt=""
+                                    style="display: block; border: 0"
+                                  />
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 10px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 16px;
+                                      line-height: 22px;
+                                      font-weight: 600;
+                                      color: #002d72;
+                                      text-transform: uppercase;
+                                    "
+                                  >
+                                    Treinamentos corporativos
+                                  </div>
+                                  <div
+                                    class="im tx-navy"
+                                    style="
+                                      padding-top: 8px;
+                                      font-family:
+                                        &quot;Inter&quot;, Arial, Helvetica,
+                                        sans-serif;
+                                      font-size: 14px;
+                                      line-height: 20px;
+                                      color: #002d72;
+                                    "
+                                  >
+                                    Capacita&ccedil;&atilde;o em qualidade,
+                                    gest&atilde;o e compet&ecirc;ncias
+                                    t&eacute;cnicas
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
@@ -630,258 +889,306 @@
               </td>
             </tr>
 
-            <!-- ===== ISO BADGES ===== -->
+            <!-- ===== ISO BADGES =====
+                 (cor travada no td externo; deco tracejado no td interno;
+                 .iso-section corrige a posicao do conector no mobile) -->
             <tr>
               <td
+                class="bg-soft"
                 bgcolor="#F8F9FA"
-                align="center"
                 style="
-                  background: #f8f9fa url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-dots-end.png&quot;)
-                    no-repeat 35px top;
-                  background-size: 57px 35px;
-                  padding: 12px 24px 16px;
+                  background-color: #f8f9fa;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png);
                 "
               >
                 <table
                   role="presentation"
+                  width="100%"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
                 >
                   <tr>
                     <td
-                      bgcolor="#FFFFFF"
+                      class="iso-section"
                       align="center"
-                      width="70"
                       style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
+                        background: transparent
+                          url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-dots-end.png&quot;)
+                          no-repeat 35px top;
+                        background-size: 57px 35px;
+                        padding: 12px 24px 16px;
                       "
                     >
-                      ISO 9001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 14001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 45001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 27001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 27701
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      colspan="9"
-                      height="10"
-                      style="font-size: 0; line-height: 0"
-                    >
-                      &nbsp;
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 37001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 37301
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 42001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      ISO 50001
-                    </td>
-                    <td width="24" style="font-size: 0">&nbsp;</td>
-                    <td
-                      bgcolor="#FFFFFF"
-                      align="center"
-                      width="70"
-                      style="
-                        background-color: #ffffff;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
-                        padding: 10px 4px;
-                        font-family:
-                          &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        color: #121212;
-                        text-transform: uppercase;
-                      "
-                    >
-                      IATF
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                      >
+                        <tr>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 9001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 14001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 45001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 27001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 27701
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            colspan="9"
+                            height="10"
+                            style="font-size: 0; line-height: 0"
+                          >
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 37001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 37301
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 42001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            ISO 50001
+                          </td>
+                          <td width="24" style="font-size: 0">&nbsp;</td>
+                          <td
+                            class="im bg-white tx-dark"
+                            bgcolor="#FFFFFF"
+                            align="center"
+                            width="70"
+                            style="
+                              background-color: #ffffff;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-ffffff.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                              padding: 10px 4px;
+                              font-family:
+                                &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                              font-size: 10px;
+                              font-weight: 600;
+                              color: #121212;
+                              text-transform: uppercase;
+                            "
+                          >
+                            IATF
+                          </td>
+                        </tr>
+                      </table>
+                      <div
+                        class="im tx-navy"
+                        style="
+                          padding-top: 14px;
+                          font-family:
+                            &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                          font-size: 10px;
+                          font-weight: 500;
+                          color: #002d72;
+                        "
+                      >
+                        Al&eacute;m de projetos de melhoria de processos
+                        aplica&ccedil;&atilde;o de ferramentas de qualidade e
+                        treinamentos corporativos
+                      </div>
                     </td>
                   </tr>
                 </table>
-                <div
-                  style="
-                    padding-top: 14px;
-                    font-family:
-                      &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                    font-size: 10px;
-                    font-weight: 500;
-                    color: #002d72;
-                  "
-                >
-                  Al&eacute;m de projetos de melhoria de processos
-                  aplica&ccedil;&atilde;o de ferramentas de qualidade e
-                  treinamentos corporativos
-                </div>
               </td>
             </tr>
 
             <!-- ===== CHECKLIST: QUANDO SUA EMPRESA PRECISA DE AJUDA ===== -->
             <tr>
               <td
+                class="bg-blue"
                 bgcolor="#E4EBFC"
-                style="background-color: #e4ebfc; padding: 24px"
+                style="
+                  background-color: #e4ebfc;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-e4ebfc.png);
+                  padding: 24px;
+                "
               >
                 <table
                   role="presentation"
@@ -901,6 +1208,7 @@
                       >
                         <tr>
                           <td
+                            class="bg-navy"
                             height="2"
                             bgcolor="#002D72"
                             style="
@@ -908,6 +1216,7 @@
                               line-height: 0;
                               height: 2px;
                               background-color: #002d72;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                             "
                           >
                             &nbsp;
@@ -916,6 +1225,7 @@
                       </table>
                     </td>
                     <td
+                      class="im tx-navy"
                       width="320"
                       align="center"
                       style="
@@ -941,6 +1251,7 @@
                       >
                         <tr>
                           <td
+                            class="bg-navy"
                             height="2"
                             bgcolor="#002D72"
                             style="
@@ -948,6 +1259,7 @@
                               line-height: 0;
                               height: 2px;
                               background-color: #002d72;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                             "
                           >
                             &nbsp;
@@ -989,6 +1301,7 @@
                             />
                           </td>
                           <td
+                            class="im tx-black"
                             style="
                               padding-left: 12px;
                               font-family:
@@ -1028,6 +1341,7 @@
                             />
                           </td>
                           <td
+                            class="im tx-black"
                             style="
                               padding-left: 12px;
                               font-family:
@@ -1069,6 +1383,7 @@
                             />
                           </td>
                           <td
+                            class="im tx-black"
                             style="
                               padding-left: 12px;
                               font-family:
@@ -1108,6 +1423,7 @@
                             />
                           </td>
                           <td
+                            class="im tx-black"
                             style="
                               padding-left: 12px;
                               font-family:
@@ -1131,7 +1447,14 @@
 
             <!-- ===== PROXIMIDADE ===== -->
             <tr>
-              <td bgcolor="#F8F9FA" style="background-color: #f8f9fa">
+              <td
+                class="bg-soft"
+                bgcolor="#F8F9FA"
+                style="
+                  background-color: #f8f9fa;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png);
+                "
+              >
                 <table
                   role="presentation"
                   width="100%"
@@ -1165,6 +1488,7 @@
                       >
                         <tr>
                           <td
+                            class="im tx-navy"
                             width="160"
                             style="
                               font-family:
@@ -1192,6 +1516,7 @@
                             >
                               <tr>
                                 <td
+                                  class="bg-navy"
                                   height="2"
                                   bgcolor="#002D72"
                                   style="
@@ -1199,6 +1524,7 @@
                                     line-height: 0;
                                     height: 2px;
                                     background-color: #002d72;
+                                    background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                                   "
                                 >
                                   &nbsp;
@@ -1209,6 +1535,7 @@
                         </tr>
                       </table>
                       <div
+                        class="im tx-navy"
                         style="
                           padding-top: 12px;
                           font-family:
@@ -1229,89 +1556,118 @@
               </td>
             </tr>
 
-            <!-- ===== CTA ===== -->
+            <!-- ===== CTA =====
+                 (cor travada no td externo; deco swirl no td interno) -->
             <tr>
               <td
+                class="bg-navy"
                 bgcolor="#002D72"
-                align="center"
                 style="
-                  background: #002d72 url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-swirl.png&quot;)
-                    no-repeat 405px 43px;
-                  background-size: 185px 182px;
-                  padding: 32px 24px;
+                  background-color: #002d72;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                 "
               >
-                <div
-                  style="
-                    font-family:
-                      &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                    font-size: 16px;
-                    font-weight: 600;
-                    color: #f8f9fa;
-                    text-transform: uppercase;
-                  "
-                >
-                  Temos a solu&ccedil;&atilde;o certa para o seu momento.
-                </div>
-                <div
-                  style="
-                    padding-top: 12px;
-                    font-family:
-                      &quot;Inter&quot;, Arial, Helvetica, sans-serif;
-                    font-size: 12px;
-                    font-weight: 500;
-                    color: #f8f9fa;
-                  "
-                >
-                  Vamos conversar sobre o pr&oacute;ximo passo da sua empresa.
-                </div>
                 <table
                   role="presentation"
+                  width="100%"
                   cellpadding="0"
                   cellspacing="0"
                   border="0"
-                  style="margin-top: 24px"
                 >
                   <tr>
                     <td
-                      bgcolor="#F8F9FA"
                       align="center"
                       style="
-                        background-color: #f8f9fa;
-                        border: 1px solid #dcdddd;
-                        border-radius: 4px;
+                        background: transparent
+                          url(&quot;https://ardszsantos.github.io/asac-mailmarketing/images/deco-swirl.png&quot;)
+                          no-repeat 405px 43px;
+                        background-size: 185px 182px;
+                        padding: 32px 24px;
                       "
                     >
-                      <a
-                        href="https://wa.me/5511953376699"
-                        target="_blank"
+                      <div
+                        class="im tx-soft"
                         style="
-                          display: inline-block;
-                          padding: 12px 24px;
+                          font-family:
+                            &quot;Inter&quot;, Arial, Helvetica, sans-serif;
+                          font-size: 16px;
+                          font-weight: 600;
+                          color: #f8f9fa;
+                          text-transform: uppercase;
+                        "
+                      >
+                        Temos a solu&ccedil;&atilde;o certa para o seu momento.
+                      </div>
+                      <div
+                        class="im tx-soft"
+                        style="
+                          padding-top: 12px;
                           font-family:
                             &quot;Inter&quot;, Arial, Helvetica, sans-serif;
                           font-size: 12px;
-                          font-weight: 600;
-                          color: #002d72;
-                          text-transform: uppercase;
-                          text-decoration: none;
+                          font-weight: 500;
+                          color: #f8f9fa;
                         "
                       >
-                        <img
-                          src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-chat.png"
-                          width="20"
-                          height="20"
-                          alt=""
-                          style="
-                            display: inline-block;
-                            border: 0;
-                            vertical-align: middle;
-                            margin-right: 10px;
-                          "
-                        /><span style="vertical-align: middle"
-                          >Falar com um especialista</span
-                        >
-                      </a>
+                        Vamos conversar sobre o pr&oacute;ximo passo da sua
+                        empresa.
+                      </div>
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                        border="0"
+                        style="margin-top: 24px"
+                      >
+                        <tr>
+                          <td
+                            class="bg-soft"
+                            bgcolor="#F8F9FA"
+                            align="center"
+                            style="
+                              background-color: #f8f9fa;
+                              background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png);
+                              border: 1px solid #dcdddd;
+                              border-radius: 4px;
+                            "
+                          >
+                            <a
+                              class="im tx-navy"
+                              href="https://wa.me/5511953376699"
+                              target="_blank"
+                              style="
+                                display: inline-block;
+                                padding: 12px 24px;
+                                font-family:
+                                  &quot;Inter&quot;, Arial, Helvetica,
+                                  sans-serif;
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: #002d72;
+                                text-transform: uppercase;
+                                text-decoration: none;
+                              "
+                            >
+                              <img
+                                src="https://ardszsantos.github.io/asac-mailmarketing/images/icon-chat.png"
+                                width="20"
+                                height="20"
+                                alt=""
+                                style="
+                                  display: inline-block;
+                                  border: 0;
+                                  vertical-align: middle;
+                                  margin-right: 10px;
+                                "
+                              /><span
+                                class="im tx-navy"
+                                style="vertical-align: middle; color: #002d72"
+                                >Falar com um especialista</span
+                              >
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                 </table>
@@ -1321,8 +1677,13 @@
             <!-- ===== FOOTER CONTACTS ===== -->
             <tr>
               <td
+                class="bg-deep"
                 bgcolor="#001F4E"
-                style="background-color: #001f4e; padding: 24px 10px"
+                style="
+                  background-color: #001f4e;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-001f4e.png);
+                  padding: 24px 10px;
+                "
               >
                 <table
                   role="presentation"
@@ -1346,6 +1707,7 @@
                         style="display: block; border: 0; margin: 0 auto 10px"
                       />
                       <a
+                        class="im tx-white"
                         href="tel:+5511953376699"
                         style="
                           font-family:
@@ -1359,11 +1721,12 @@
                       >
                     </td>
                     <td
+                      class="hide-mobile bg-navy"
                       width="2"
                       bgcolor="#002D72"
-                      class="hide-mobile"
                       style="
                         background-color: #002d72;
+                        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                         font-size: 0;
                         line-height: 0;
                       "
@@ -1384,6 +1747,7 @@
                         style="display: block; border: 0; margin: 0 auto 10px"
                       />
                       <a
+                        class="im tx-white"
                         href="mailto:contact@ascending.solutions"
                         style="
                           font-family:
@@ -1397,11 +1761,12 @@
                       >
                     </td>
                     <td
+                      class="hide-mobile bg-navy"
                       width="2"
                       bgcolor="#002D72"
-                      class="hide-mobile"
                       style="
                         background-color: #002d72;
+                        background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-002d72.png);
                         font-size: 0;
                         line-height: 0;
                       "
@@ -1422,6 +1787,7 @@
                         style="display: block; border: 0; margin: 0 auto 10px"
                       />
                       <a
+                        class="im tx-white"
                         href="https://www.ascending.solutions"
                         target="_blank"
                         style="
@@ -1443,11 +1809,17 @@
             <!-- ===== COMPLIANCE FOOTER (necessário para entregabilidade) ===== -->
             <tr>
               <td
+                class="bg-soft"
                 bgcolor="#F8F9FA"
                 align="center"
-                style="background-color: #f8f9fa; padding: 20px 24px"
+                style="
+                  background-color: #f8f9fa;
+                  background-image: url(https://ardszsantos.github.io/asac-mailmarketing/images/bg-f8f9fa.png);
+                  padding: 20px 24px;
+                "
               >
                 <div
+                  class="im tx-gray"
                   style="
                     font-family:
                       &quot;Inter&quot;, Arial, Helvetica, sans-serif;
@@ -1463,6 +1835,7 @@
                   Paulo/SP, Brasil
                 </div>
                 <div
+                  class="im tx-gray"
                   style="
                     padding-top: 8px;
                     font-family:
@@ -1473,6 +1846,7 @@
                 >
                   N&atilde;o quer mais receber nossos e-mails?
                   <a
+                    class="im tx-navy"
                     href="{{unsubscribe_url}}"
                     style="color: #002d72; text-decoration: underline"
                     >Cancelar inscri&ccedil;&atilde;o</a
